@@ -1,0 +1,13 @@
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+    res.send({hi: 'there'});
+});
+
+app.get('/yoga/create', (req, res) => {
+    res.send({create: 'your practice here!'});
+});
+
+const PORT = process.env.PORT || 5001;
+app.listen(PORT);
