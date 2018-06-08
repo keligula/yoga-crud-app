@@ -1,1 +1,5 @@
-//keys for future prod site
+//production keys here
+
+module.exports = {
+  mongoURI: process.env.MONGO_URI
+};
