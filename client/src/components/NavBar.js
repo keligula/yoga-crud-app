@@ -5,10 +5,10 @@ class NavBar extends Component {
     return (
       <nav style={{ backgroundColor: '#024F7A' }}>
         <div className="nav-wrapper" style={{ paddingLeft: '10px' }}>
-          <a href="#" class="brand-logo">
+          <a href="/" className="brand-logo">
             Yoga Calculator
           </a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li>
               <a href="/practice/add">Log Practice</a>
             </li>
