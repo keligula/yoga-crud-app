@@ -10,7 +10,7 @@ import Calculate from './Calculate';
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="container">
+      <div>
         <NavBar />
         <Route exact path="/" component={Landing} />
         <Route path="/practice/add" component={CreatePractice} />

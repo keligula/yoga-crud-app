@@ -36,7 +36,7 @@ class CreatePractice extends Component {
   render() {
     const { date, instructor, classType, rating } = this.state;
     return (
-      <div>
+      <div className="container">
         <form onSubmit={this.onSubmit}>
           <label>Date</label>
           <input
