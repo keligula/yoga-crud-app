@@ -1,3 +1,6 @@
 import { combineReducers } from 'redux';
+import practicesReducer from './practicesReducer';
 
-export default combineReducers({});
+export default combineReducers({
+  practices: practicesReducer
+});

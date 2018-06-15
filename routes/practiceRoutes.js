@@ -2,10 +2,12 @@ const mongoose = require('mongoose');
 
 const Practice = mongoose.model('practices');
 
-//TODO: GET all practices from db
 module.exports = app => {
-  app.get('/api/practices', (req, res) => {
-    res.send([1, 2, 3]);
+  //GET all practices from db
+  app.get('/api/practices', async (req, res) => {
+    const practices = await Practice.find().select();
+
+    res.send(practices);
   });
 
   //POST a new practice to db

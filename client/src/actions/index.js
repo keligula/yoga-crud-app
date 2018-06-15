@@ -1,10 +1,11 @@
 import axios from 'axios';
+import { FETCH_PRACTICES } from './types';
 
 //GET all practices
 export const fetchPractices = () => async dispatch => {
   const res = await axios.get('api/practices');
 
-  dispatch({ payload: res.data });
+  dispatch({ type: FETCH_PRACTICES, payload: res.data });
 };
 
 //POST a new practice
