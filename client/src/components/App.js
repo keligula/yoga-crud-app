@@ -14,7 +14,7 @@ const App = () => {
         <NavBar />
         <Route exact path="/" component={Landing} />
         <Route path="/practices/add" component={CreatePractice} />
-        <Route path="/practices" component={ViewPractices} />
+        <Route exact path="/practices" component={ViewPractices} />
         <Route path="/calculate" component={Calculate} />
       </div>
     </BrowserRouter>
