@@ -1,36 +1,48 @@
 import React from 'react';
 import yogaCat from '../images/meow-yoga.jpg';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
-const Landing = () => {
+const styles = {
+  button: {
+    background: 'linear-gradient(45deg, #0b0b94 20%, #00d4ff 90%)',
+    borderRadius: 3,
+    border: 0,
+    height: 48,
+    padding: '0 30px',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .30)',
+    margin: '20px'
+  },
+  link: {
+    color: 'white',
+    textDecoration: 'none'
+  }
+};
+
+const Landing = props => {
   return (
-    <div style={{ textAlign: 'center', color: 'hsl(180, 51%, 50%)', fontSize: '20px' }}>
+    <div style={{ textAlign: 'center', color: '#0b0b94', fontSize: '20px' }}>
       <img src={yogaCat} style={{ height: '250px', paddingTop: '50px' }} alt="meow-maste" />
       <p>
         Log a practice, view all, or calculate to see if you're getting your money's worth. Namaste!
       </p>
-      <a
-        href="/practices/add"
-        className="waves-effect waves-light btn-large"
-        style={{ margin: '20px' }}
-      >
-        <i className="material-icons left">add</i>Log Practice
-      </a>
-      <a
-        href="/practices"
-        className="waves-effect waves-light btn-large"
-        style={{ margin: '20px' }}
-      >
-        <i className="material-icons left">view_list</i>View All
-      </a>
-      <a
-        href="/calculate"
-        className="waves-effect waves-light btn-large"
-        style={{ margin: '20px' }}
-      >
-        <i className="material-icons left">attach_money</i>Calculate
-      </a>
+      <Button className={props.classes.button}>
+        <a href="/practices/add" className={props.classes.link}>
+          Log Practice
+        </a>
+      </Button>
+      <Button className={props.classes.button}>
+        <a href="/practices" className={props.classes.link}>
+          View All
+        </a>
+      </Button>
+      <Button className={props.classes.button}>
+        <a href="/calculate" className={props.classes.link}>
+          Calculate
+        </a>
+      </Button>
     </div>
   );
 };
 
-export default Landing;
+export default withStyles(styles)(Landing);

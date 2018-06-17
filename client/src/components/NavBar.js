@@ -1,32 +1,68 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
-class NavBar extends Component {
-  render() {
-    return (
-      <nav style={{ backgroundColor: 'hsl(180, 51%, 50%)' }}>
-        <div className="nav-wrapper" style={{ paddingLeft: '10px' }}>
-          <a href="/" className="brand-logo">
-            YOGA CALCULATOR
-          </a>
-          <ul id="nav-mobile" className="right hide-on-med-and-down">
-            <li>
-              <a href="https://www.linkedin.com/in/keldonger/" target="_blank">
-                LINKEDIN
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/keligula" target="_blank">
-                GITHUB
-              </a>
-            </li>
-            <li>
-              <a href="mailto:keldonger@gmail.com">CONTACT</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    );
+const styles = {
+  root: {
+    flexGrow: 1
+  },
+  flex: {
+    flex: 1
+  },
+  link: {
+    marginRight: 10,
+    textDecoration: 'none',
+    color: 'white'
   }
+};
+
+function NavBar(props) {
+  const { classes } = props;
+  return (
+    <div className={classes.root}>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="title" className={classes.flex}>
+            <a href="/" className={classes.link}>
+              YOGA MOTIVATOR
+            </a>
+          </Typography>
+          <Typography>
+            <a
+              href="https://www.linkedin.com/in/keldonger/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={classes.link}
+            >
+              LINKEDIN
+            </a>
+          </Typography>
+          <Typography>
+            <a
+              href="https://github.com/keligula"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={classes.link}
+            >
+              GITHUB
+            </a>
+          </Typography>
+          <Typography>
+            <a href="mailto:keldonger@gmail.com" className={classes.link}>
+              CONTACT
+            </a>
+          </Typography>
+        </Toolbar>
+      </AppBar>
+    </div>
+  );
 }
 
-export default NavBar;
+NavBar.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(NavBar);

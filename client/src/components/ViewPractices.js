@@ -4,20 +4,21 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
 import { fetchPractices } from '../actions';
 
-const styles = theme => ({
+const styles = {
   root: {
     width: '100%',
-    marginTop: theme.spacing.unit * 3,
-    overflowX: 'auto'
+    overflowX: 'auto',
+    flexGrow: 1,
+    display: 'flex'
   },
   table: {
-    minWidth: 700
+    minWidth: 400
   }
-});
+};
 
 class ViewPractices extends Component {
   componentDidMount() {
@@ -26,45 +27,45 @@ class ViewPractices extends Component {
 
   renderPractices() {
     return (
-      <Paper className={styles.root}>
-        <Table className={styles.table}>
-          <TableHead>
-            <TableRow>
-              <TableCell>Date</TableCell>
-              <TableCell numeric>Instructor</TableCell>
-              <TableCell numeric>Class Type</TableCell>
-              <TableCell numeric>Rating</TableCell>
-              <TableCell numeric>Edit</TableCell>
-              <TableCell numeric>Delete</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {this.props.practices.map(practice => {
-              return (
-                <TableRow key={practice._id}>
-                  <TableCell component="th" scope="row">
-                    {practice.date}
-                  </TableCell>
-                  <TableCell numeric>{practice.instructor}</TableCell>
-                  <TableCell numeric>{practice.classType}</TableCell>
-                  <TableCell numeric>{practice.rating}</TableCell>
-                  <TableCell numeric>
-                    <button>Edit</button>
-                  </TableCell>
-                  <TableCell numeric>
-                    <button>Delete</button>
-                  </TableCell>
-                </TableRow>
-              );
-            })}
-          </TableBody>
-        </Table>
-      </Paper>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Date</TableCell>
+            <TableCell numeric>Instructor</TableCell>
+            <TableCell numeric>Class Type</TableCell>
+            <TableCell numeric>Rating</TableCell>
+            <TableCell>Edit</TableCell>
+            <TableCell>Delete</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {this.props.practices.map(practice => {
+            return (
+              <TableRow key={practice._id}>
+                <TableCell>{practice.date}</TableCell>
+                <TableCell numeric>{practice.instructor}</TableCell>
+                <TableCell numeric>{practice.classType}</TableCell>
+                <TableCell numeric>{practice.rating}</TableCell>
+                <TableCell>
+                  <Button variant="contained" color="primary">
+                    EDIT
+                  </Button>
+                </TableCell>
+                <TableCell>
+                  <Button variant="contained" color="secondary">
+                    DELETE
+                  </Button>
+                </TableCell>
+              </TableRow>
+            );
+          })}
+        </TableBody>
+      </Table>
     );
   }
 
   render() {
-    return <div>{this.renderPractices()}</div>;
+    return <div className={styles.root}>{this.renderPractices()}</div>;
   }
 }
 
