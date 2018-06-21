@@ -69,7 +69,6 @@ class CreatePractice extends Component {
           value={instructor}
           onChange={this.handleChange}
         />
-
         <TextField
           name="classType"
           label="Class Type"

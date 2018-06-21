@@ -29,4 +29,11 @@ module.exports = app => {
       res.status(422).send(err);
     }
   });
+
+  //DELETE practice by id
+  app.delete('/api/practices/:id', async (req, res) => {
+    const practice = await Practice.findByIdAndRemove(req.params.id);
+
+    res.send(practice);
+  });
 };

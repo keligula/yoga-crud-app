@@ -14,3 +14,10 @@ export const submitPractice = values => async dispatch => {
 
   dispatch({ payload: res.data });
 };
+
+//DELETE practice by id
+export const deletePractice = practiceId => async dispatch => {
+  const res = await axios.delete('/api/practices/' + practiceId);
+
+  dispatch({ type: FETCH_PRACTICES, payload: res.data });
+};

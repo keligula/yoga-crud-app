@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -23,6 +24,12 @@ const styles = {
 class ViewPractices extends Component {
   componentDidMount() {
     this.props.fetchPractices();
+  }
+
+  deletePractice(practiceId) {
+    console.log(practiceId);
+
+    axios.delete('/api/practices/' + practiceId);
   }
 
   renderPractices() {
@@ -52,7 +59,11 @@ class ViewPractices extends Component {
                   </Button>
                 </TableCell>
                 <TableCell>
-                  <Button variant="contained" color="secondary">
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    onClick={this.deletePractice.bind(this, practice._id)}
+                  >
                     DELETE
                   </Button>
                 </TableCell>
