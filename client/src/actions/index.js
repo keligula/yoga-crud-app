@@ -3,7 +3,7 @@ import { FETCH_PRACTICES } from './types';
 
 //GET all practices
 export const fetchPractices = () => async dispatch => {
-  const res = await axios.get('api/practices');
+  const res = await axios.get('/api/practices');
 
   dispatch({ type: FETCH_PRACTICES, payload: res.data });
 };

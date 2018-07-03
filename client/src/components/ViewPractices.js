@@ -27,9 +27,14 @@ class ViewPractices extends Component {
   }
 
   deletePractice(practiceId) {
-    console.log(practiceId);
-
-    axios.delete('/api/practices/' + practiceId);
+    axios
+      .delete('/api/practices/' + practiceId, this.state)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
   }
 
   renderPractices() {
