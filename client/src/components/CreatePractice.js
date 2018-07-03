@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import axios from 'axios';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -39,8 +39,8 @@ class CreatePractice extends Component {
 
     axios
       .post('/api/practices', this.state)
-      .then(result => {
-        console.log(result);
+      .then(res => {
+        console.log(res);
         this.setState({ date: '', instructor: '', classType: '', rating: '' });
       })
       .catch(function(err) {
@@ -91,8 +91,8 @@ class CreatePractice extends Component {
   }
 }
 
-TextField.propTypes = {
-  classes: PropTypes.object.isRequired
-};
+// TextField.propTypes = {
+//   classes: PropTypes.object.isRequired
+// };
 
 export default withStyles(styles)(CreatePractice);

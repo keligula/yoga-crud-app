@@ -28,13 +28,20 @@ class ViewPractices extends Component {
 
   deletePractice(practiceId) {
     axios
-      .delete('/api/practices/' + practiceId, this.state)
+      .delete('/api/practices/' + practiceId)
       .then(res => {
         console.log(res);
+        this.props.fetchPractices();
       })
       .catch(function(err) {
         console.log(err);
       });
+  }
+
+  editPractice(practiceId) {
+    //axios.put('/api/practices/' + practiceId).then(res => {
+    console.log('this id is ready for editing:', practiceId);
+    //});
   }
 
   renderPractices() {
@@ -59,7 +66,11 @@ class ViewPractices extends Component {
                 <TableCell numeric>{practice.classType}</TableCell>
                 <TableCell numeric>{practice.rating}</TableCell>
                 <TableCell>
-                  <Button variant="contained" color="primary">
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={this.editPractice.bind(this, practice._id)}
+                  >
                     EDIT
                   </Button>
                 </TableCell>
