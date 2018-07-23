@@ -1,5 +1,5 @@
 import React from 'react';
-import yogaCat from '../images/meow-yoga.jpg';
+import yogaCat from './../../images/meow-yoga.jpg';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 

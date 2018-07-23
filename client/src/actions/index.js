@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_PRACTICES } from './types';
+import { FETCH_PRACTICES, FETCH_PRACTICE } from './types';
 
 //GET all practices
 export const fetchPractices = () => async dispatch => {
@@ -20,4 +20,11 @@ export const deletePractice = practiceId => async dispatch => {
   const res = await axios.delete('/api/practices/' + practiceId);
 
   dispatch({ type: FETCH_PRACTICES, payload: res.data });
+};
+
+//UPDATE practice by id
+export const updatePractice = practiceId => async dispatch => {
+  const res = await axios.put('/api/practices/' + practiceId);
+
+  dispatch({ type: FETCH_PRACTICE, payload: res.data });
 };
