@@ -30,7 +30,8 @@ class CreatePractice extends Component {
       date: '',
       instructor: '',
       classType: '',
-      rating: ''
+      rating: '',
+      isEditing: false
     };
   }
 
@@ -47,6 +48,7 @@ class CreatePractice extends Component {
       .then(res => {
         console.log(res);
         this.setState({ date: '', instructor: '', classType: '', rating: '' });
+        this.props.history.push('/practices');
       })
       .catch(function(err) {
         console.log(err);

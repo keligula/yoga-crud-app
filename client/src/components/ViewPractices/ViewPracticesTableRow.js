@@ -21,9 +21,25 @@ class ViewPracticesTableRow extends Component {
   }
 
   editPractice(practiceId) {
-    //axios.put('/api/practices/' + practiceId).then(res => {
-    console.log('this id is ready for editing:', practiceId);
-    //});
+    axios.get('/api/practices/' + practiceId).then(res => {
+      console.log(res);
+    });
+    // this.setState({
+    //   date: 'blah',
+    //   instructor: 'blah',
+    //   classType: 'blah',
+    //   rating: 'blah'
+    // });
+    // axios
+    //   .put('/api/practices/' + practiceId, this.state)
+    //   .then(res => {
+    //     console.log('this id is ready for editing:', practiceId);
+    //     console.log(this.state);
+    //     this.props.fetchPractices();
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
   }
 
   render() {
@@ -40,7 +56,7 @@ class ViewPracticesTableRow extends Component {
                 <Button
                   variant="contained"
                   color="primary"
-                  onClick={this.editPractice.bind(this, practice._id)}
+                  onClick={this.editPractice.bind(this, practice._id, this.state)}
                 >
                   EDIT
                 </Button>

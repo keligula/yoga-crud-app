@@ -8,6 +8,13 @@ export const fetchPractices = () => async dispatch => {
   dispatch({ type: FETCH_PRACTICES, payload: res.data });
 };
 
+//GET practice by id
+export const getPracticeById = practiceId => async dispatch => {
+  const res = await axios.get('/api/practices' + practiceId);
+
+  dispatch({ type: FETCH_PRACTICE, payload: res.data });
+};
+
 //POST a new practice
 export const submitPractice = values => async dispatch => {
   const res = await axios.post('/api/practices', values);
@@ -23,8 +30,8 @@ export const deletePractice = practiceId => async dispatch => {
 };
 
 //UPDATE practice by id
-export const updatePractice = practiceId => async dispatch => {
-  const res = await axios.put('/api/practices/' + practiceId);
+export const updatePractice = (practiceId, values) => async dispatch => {
+  const res = await axios.put('/api/practices/' + practiceId, values);
 
-  dispatch({ type: FETCH_PRACTICE, payload: res.data });
+  dispatch({ type: FETCH_PRACTICES, payload: res.data });
 };
