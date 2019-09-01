@@ -25,7 +25,7 @@
     "concurrently": "^3.5.1",
     "express": "^4.16.3",
     "lodash": ">=4.17.13",
-    "mongoose": "^5.1.4",
+    "mongoose": "^5.6.11",
     "nodemon": "^1.17.5"
   },
   "devDependencies": {
